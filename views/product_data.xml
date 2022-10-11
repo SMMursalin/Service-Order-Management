@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_product_details_tree" model="ir.ui.view">
+        <field name="name">product.data.tree</field>
+            <field name="model">product.data</field>
+            <field name="arch" type="xml">
+                <tree>
+
+                    <field name="imei_no"/>
+                    <field name="invoice_no"/>
+                    <field name="pop_date"/>
+                    <field name="customer"/>
+                    <field name="product"/>
+                    <field name="warranty_status"/>
+                    <field name="warranty_expire_date_l"/>
+                    <field name="warranty_expire_date_p" />
+                    <field name="guaranty_expiry_date"/>
+                </tree>
+            </field>
+    </record>
+
+    <record id="view_product_details_form" model="ir.ui.view">
+            <field name="name">product.data.form</field>
+            <field name="model">product.data</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+
+                        <group col="3">
+                            <field name="imei_no"/>
+                            <field name="invoice_no"/>
+                            <field name="pop_date"/>
+                            <field name="customer"/>
+                            <field name="product"/>
+                            <field name="warranty_status"/>
+                            <field name="warranty_expire_date_l"/>
+                            <field name="warranty_expire_date_p"/>
+                            <field name="guaranty_expiry_date"/>
+
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+    <record id="action_product_details" model="ir.actions.act_window">
+        <field name="name">ProductData</field>
+        <field name="res_model">product.data</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+        <field name="help" type="html"><p class="o_view_nocontent_smiling_face">
+            Schedule your servicing
+        </p> </field>
+    </record>
+
+        <menuitem
+            id="menu_product_management"
+            parent="menu_product_master"
+            name="Product Purchase Details"
+            action="action_product_details"
+            sequence="10"/>
+
+</odoo>

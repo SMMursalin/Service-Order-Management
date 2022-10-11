@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem
+            id="menu_service_root"
+            name="Repair"
+            web_icon="usl_service_order_automation,static/description/icon.png"
+            sequence="0"/>
+
+    <menuitem
+            id="menu_service_master"
+            parent="menu_service_root"
+            name="Service Order Management"
+            sequence="0"/>
+
+    <menuitem
+            id="menu_product_master"
+            parent="menu_service_root"
+            name="Product Purchase details"
+            sequence="0"/>
+
+</odoo>

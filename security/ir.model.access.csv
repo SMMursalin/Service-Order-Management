@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access.service.order,access_service_order,usl_service_order_automation.model_service_order,base.group_user,1,1,1,1
+access.product.data,access_product_data,usl_service_order_automation.model_product_data,base.group_user,1,1,1,1
+access.invoice.data,access_invoice_data,usl_service_order_automation.model_invoice_data,base.group_user,1,1,1,1
+access.symptoms.lines,access_symptoms_lines,usl_service_order_automation.model_symptoms_lines,base.group_user,1,1,1,1
