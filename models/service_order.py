@@ -14,12 +14,21 @@ class ServiceOrder(models.Model):
     branch = fields.Selection([('idb','IDB'),('dhaka','Dhaka'),('bashundhora','Bashundhora')],string='Branch', tracking=True)
     dealer = fields.Selection([('corporate', 'Corporate'), ('self', 'Self')], string='Dealer',tracking=True)
     # dealer = fields.Many2many('res.partner.category',string='Dealer', required = True)
-    dealer1 = fields.Many2many('res.partner.category',string='Dealer/Retailer', required = True)
+
+    dealer1 = fields.Many2one(
+        'res.partner',
+        string="Dealer/Retailer",
+        domain=['|', ('category_id', '=', 'Dealer'), ('category_id', '=', 'Retailer')]
+    )
+
+
+
+
     communication_media = fields.Selection([('email', 'Email'), ('call', 'Call'), ('facebook', 'whatsapp')], string='Communication Media',tracking=True)
     service_type = fields.Selection([('pickup', 'Pickup'), ('courier', 'Courier'), ('onsite', 'Onsite')], string='Service Type',tracking=True)
     imei_no =fields.Many2one('product.data', string='IMEI No', ondelete='cascade')
-    # invoice_no =fields.Text(related='imei_no.invoice_no', readonly=True)
-    invoice_attachment = fields.Text(string="Invoice Attachment")
+    invoice_no =fields.Text(string="Invoice No")
+    invoice_attachment = fields.Image(string="Invoice Attachment")
     pop_date = fields.Date(related='imei_no.pop_date', readonly=True)
     customer = fields.Many2one(related='imei_no.customer', readonly=True)
     product = fields.Many2one(related='imei_no.product', readonly=True)
@@ -47,11 +56,6 @@ class ServiceOrder(models.Model):
     is_sms = fields.Boolean('Is SMS?')
 
     symptoms_lines_ids = fields.One2many('symptoms.lines','order_id', string="Symptoms")
-    #
-    # remarks =
-
-
-
 
 
 

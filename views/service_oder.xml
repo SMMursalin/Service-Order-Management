@@ -66,7 +66,7 @@
                                 <field name="order_no"/>
                                 <field name="order_date"/>
                                 <field name="branch" />
-                                <field name="dealer1" widget="many2many_tags"/>
+                                <field name="dealer1"/>
                                 <field name="communication_media" />
                                 <field name="service_type" />
                                 <field name="imei_no" />
@@ -74,7 +74,7 @@
                             </group>
 
                             <group>
-<!--                                <field name="invoice_no"/>-->
+                                <field name="invoice_no"/>
                                 <field name="invoice_attachment"/>
                                 <field name="pop_date" />
                                 <field name="customer" />
